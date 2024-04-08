@@ -19,7 +19,6 @@ RPM2 = int(input("enter the right wheel velocity:"))
 radius = 22
 dt = 0.1
 
-
 def RoundToFifteen(x, base=15):
     return base * round(x / base)
 
@@ -167,11 +166,6 @@ def a_star(map_image, start, goal, step_size):
                 explored_nodes.append(next_node)
                 child.append(next_node[:2])
                 k = k+1
-        # if k >8000:
-        #     return backtrack(parents, start, current_node, action_king), costs[
-        #         current_node], explored_nodes, parent_node, child_node
-
-        #     break
         if child == []:
             continue
         else:
@@ -285,21 +279,9 @@ if __name__ == "__main__":
         print(path[1])
         print(f"Cost: {cost}")  # print the cost
         print(len(path))
-        # for ite in path[2]:
-        #     print("============")
-        #     print(ite)
-        #     break
-        #     # node_path,action_path,velicity_path = path[ite]
-        #     for linear_vel, angular_vel in velicity_path:
-        #         # Process each velocity pair as needed
-        #         print("Linear Velocity: ", linear_vel, "Angular Velocity: ", angular_vel)
-        #         V.append((linear_vel, angular_vel))
             
         print("velocities :", path[2])  # printing the velocities required
         # for i in path[2]:
-        #     vel = i
-        #     print(vel[0],vel[1])
-        #     print(type(vel[0]))
         visualize(map_image, path, parent, child, explored_nodes)  # initialize the visualization
         r = 3.3
         L = 28.7
